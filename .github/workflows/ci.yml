@@ -24,7 +24,7 @@ jobs:
 
   checks:
     name: npm checks
-    runs-on: [self-hosted, Linux]
+    runs-on: self-hosted
     steps:
       - name: checkout
         uses: actions/checkout@v2

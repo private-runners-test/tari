@@ -35,7 +35,7 @@ jobs:
       - name: npm audit collectibles
         run: |
           cd applications/tari_collectibles/web-app
-          # We have to ignore this for now because audit error is in react-scripts
+          # We have to ignore this for now because audit error is in react-scripts ci test
           npm audit || true
       - name: npm audit explorer
         run: |

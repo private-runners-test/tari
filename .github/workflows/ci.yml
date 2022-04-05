@@ -26,7 +26,7 @@ jobs:
 
   checks:
     name: npm checks
-    runs-on: self-hosted
+    runs-on: [self-hosted, Linux]
     steps:
       - name: checkout
         uses: actions/checkout@v2
@@ -55,7 +55,7 @@ jobs:
 
   clippy:
     name: clippy
-    runs-on: self-hosted
+    runs-on: [self-hosted, Linux]
     steps:
       - name: checkout
         uses: actions/checkout@v2
@@ -93,7 +93,7 @@ jobs:
           args: --all-targets -- -D warnings
   build:
     name: check nightly
-    runs-on: self-hosted
+    runs-on: [self-hosted, Linux]
     steps:
       - name: checkout
         uses: actions/checkout@v2
@@ -132,7 +132,7 @@ jobs:
 
   build-stable:
     name: check stable
-    runs-on: self-hosted
+    runs-on: [self-hosted, Linux]
     steps:
       - name: checkout
         uses: actions/checkout@v2
@@ -173,7 +173,7 @@ jobs:
           args: --release --package tari_wallet_ffi
   javascript:
     name: npm packages
-    runs-on: self-hosted
+    runs-on: [self-hosted, Linux]
     steps:
       - name: checkout
         uses: actions/checkout@v2
@@ -195,7 +195,7 @@ jobs:
           npm run check-fmt
   licenses:
     name: file licenses
-    runs-on: self-hosted
+    runs-on: [self-hosted, Linux]
     steps:
       - name: checkout
         uses: actions/checkout@v2
@@ -208,7 +208,7 @@ jobs:
         run: ./scripts/file_license_check.sh
   test:
     name: test
-    runs-on: self-hosted
+    runs-on: [self-hosted, Linux]
     steps:
       - name: checkout
         uses: actions/checkout@v2
@@ -251,7 +251,7 @@ jobs:
   # Allows other workflows to know the PR number
   artifacts:
     name: test
-    runs-on: self-hosted
+    runs-on: [self-hosted, Linux]
     steps:
       - name: Save the PR number in an artifact
         shell: bash

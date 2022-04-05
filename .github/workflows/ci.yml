@@ -20,6 +20,8 @@ env:
   CARGO_TERM_COLOR: always
   PROTOC: protoc
 
+
+
 jobs:
 
   checks:
@@ -53,7 +55,7 @@ jobs:
 
   clippy:
     name: clippy
-    runs-on: ubuntu-18.04
+    runs-on: self-hosted
     steps:
       - name: checkout
         uses: actions/checkout@v2
@@ -91,7 +93,7 @@ jobs:
           args: --all-targets -- -D warnings
   build:
     name: check nightly
-    runs-on: ubuntu-18.04
+    runs-on: self-hosted
     steps:
       - name: checkout
         uses: actions/checkout@v2
@@ -130,7 +132,7 @@ jobs:
 
   build-stable:
     name: check stable
-    runs-on: ubuntu-18.04
+    runs-on: self-hosted
     steps:
       - name: checkout
         uses: actions/checkout@v2
@@ -171,7 +173,7 @@ jobs:
           args: --release --package tari_wallet_ffi
   javascript:
     name: npm packages
-    runs-on: ubuntu-18.04
+    runs-on: self-hosted
     steps:
       - name: checkout
         uses: actions/checkout@v2
@@ -193,7 +195,7 @@ jobs:
           npm run check-fmt
   licenses:
     name: file licenses
-    runs-on: ubuntu-20.04
+    runs-on: self-hosted
     steps:
       - name: checkout
         uses: actions/checkout@v2
@@ -206,7 +208,7 @@ jobs:
         run: ./scripts/file_license_check.sh
   test:
     name: test
-    runs-on: ubuntu-18.04
+    runs-on: self-hosted
     steps:
       - name: checkout
         uses: actions/checkout@v2
@@ -249,7 +251,7 @@ jobs:
   # Allows other workflows to know the PR number
   artifacts:
     name: test
-    runs-on: ubuntu-18.04
+    runs-on: self-hosted
     steps:
       - name: Save the PR number in an artifact
         shell: bash
